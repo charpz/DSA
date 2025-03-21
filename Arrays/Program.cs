@@ -1,4 +1,4 @@
-﻿int[] sampleArray = [23, 245, 546, 123, 342, 2];
+﻿int[] sampleArray = [23, 245, 546, 123, 4, 342, 2];
 
 //Console.WriteLine("Lowest value in the array: " + ArrayAlgorithms.FindLowestValueInArray(sampleArray));
 
@@ -24,20 +24,43 @@
 //    Console.Write(item + " ");
 //}
 
-
-static int[] QuickSort(int[] array)
+Console.Write("QuickSorted array: ");
+var selectSorted = QuickSort(ref sampleArray, 0);
+foreach (var item in selectSorted)
 {
-    var pivot = 0;
+    Console.Write(item + " ");
+}
+
+static int[] QuickSort(ref int[] array, int pivot)
+{
+    var pivotVal = array[pivot];
+    var counter = 0;
 
     for (int i = pivot; i < array.Length - pivot; i++)
     {
-        var leftVal = i;
-        var rightVal = i + 1;
-
-        if (leftVal > rightVal)
+        if (pivotVal > array[i])
         {
-            array[i] = rightVal;
-            array[i + 1] = leftVal;
+            var lowerVal = array[i];
+            var pointer = i;
+
+            for (int j = 1; j <= i - pivot; j++)
+            {
+                array[pointer] = array[i - j];
+                pointer--;
+            }
+
+            array[pivot] = lowerVal;
+            counter++;
         }
     }
+
+    var newPivot = pivot + counter;
+
+    if (counter > 0)
+    {
+        _ = QuickSort(ref array, 0);
+        _ = QuickSort(ref array, newPivot + 1);
+    }
+
+    return array;
 }
