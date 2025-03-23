@@ -17,7 +17,22 @@ internal sealed class ArrayAlgorithms
         return minValue;
     }
 
-    internal static int[] BubbleSort(int[] array)
+    internal static int FindHighestValueInArray(int[] array)
+    {
+        var maxValue = array[0];
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] > maxValue)
+            {
+                maxValue = array[i];
+            }
+        }
+
+        return maxValue;
+    }
+
+    internal static void BubbleSort(int[] array)
     {
         var swapped = false;
 
@@ -39,11 +54,9 @@ internal sealed class ArrayAlgorithms
         {
             BubbleSort(array);
         }
-
-        return array;
     }
 
-    internal static int[] SelectionSort(int[] array)
+    internal static void SelectionSort(int[] array)
     {
         for (int i = 0; i < array.Length; i++)
         {
@@ -69,11 +82,9 @@ internal sealed class ArrayAlgorithms
             // Move lowest value to the front of the array
             array[i] = minVal;
         }
-
-        return array;
     }
 
-    internal static int[] InsertionSort(int[] array)
+    internal static void InsertionSort(int[] array)
     {
         for (int i = 1; i < array.Length; i++)
         {
@@ -92,8 +103,6 @@ internal sealed class ArrayAlgorithms
                 }
             }
         }
-
-        return array;
     }
 
     internal static void QuickSort(int[] array, int lowIndex = 0, int? highIndex = null)
@@ -131,7 +140,7 @@ internal sealed class ArrayAlgorithms
 
     internal static void CountingSort(int[] array)
     {
-        var tempArray = new int[MaxValue(array) + 1];
+        var tempArray = new int[FindHighestValueInArray(array) + 1];
 
         for (int i = 0; i < array.Length; i++)
         {
@@ -151,20 +160,12 @@ internal sealed class ArrayAlgorithms
                 arrayPos++;
             }
         }
-
-        static int MaxValue(int[] array)
-        {
-            var maxValue = array[0];
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i] > maxValue)
-                {
-                    maxValue = array[i];
-                }
-            }
-
-            return maxValue;
-        }
     }
+
+    [Obsolete("This method is not finished yet.", true)]
+    internal static void RadixSort(int[] array)
+    {
+        // TODO: TBC
+    }
+
 }
