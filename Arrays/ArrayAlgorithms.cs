@@ -128,4 +128,43 @@ internal sealed class ArrayAlgorithms
         QuickSort(array, lowIndex, leftPointer - 1);
         QuickSort(array, leftPointer + 1, highIndex);
     }
+
+    internal static void CountingSort(int[] array)
+    {
+        var tempArray = new int[MaxValue(array) + 1];
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            var @value = array[i];
+            tempArray[value]++;
+        }
+
+        var arrayPos = 0;
+
+        for (int i = 0; i < tempArray.Length; i++)
+        {
+            if (tempArray[i] == 0) continue;
+
+            for (int j = 0; j < tempArray[i]; j++)
+            {
+                array[arrayPos] = i;
+                arrayPos++;
+            }
+        }
+
+        static int MaxValue(int[] array)
+        {
+            var maxValue = array[0];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] > maxValue)
+                {
+                    maxValue = array[i];
+                }
+            }
+
+            return maxValue;
+        }
+    }
 }
