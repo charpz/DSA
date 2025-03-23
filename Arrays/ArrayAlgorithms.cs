@@ -165,7 +165,6 @@ internal sealed class ArrayAlgorithms
     [Obsolete("This method is not finished yet.", true)]
     internal static void RadixSort(int[] array)
     {
-        // TODO: TBC
+        // TODO: To be completed
     }
-
 }
