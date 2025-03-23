@@ -96,43 +96,15 @@ internal sealed class ArrayAlgorithms
         return array;
     }
 
-    internal static void QuickSort(int[] array)
+    internal static void QuickSort(int[] array, int lowIndex = 0, int? highIndex = null)
     {
         if (array.Length <= 1) return;
 
-        var highIndex = array.Length - 1;
-        var lowIndex = 0;
+        highIndex ??= array.Length - 1;
 
-        var pivot = array[highIndex];
-        var leftPointer = lowIndex;
-        var rightPointer = highIndex;
-
-        while (leftPointer < rightPointer)
-        {
-            while (array[leftPointer] <= pivot && leftPointer < rightPointer)
-            {
-                leftPointer++;
-            }
-
-            while (array[rightPointer] >= pivot && leftPointer < rightPointer)
-            {
-                rightPointer--;
-            }
-
-            (array[rightPointer], array[leftPointer]) = (array[leftPointer], array[rightPointer]);
-        }
-
-        (array[highIndex], array[leftPointer]) = (array[leftPointer], array[highIndex]);
-
-        QuickSort(array, lowIndex, leftPointer - 1);
-        QuickSort(array, leftPointer + 1, highIndex);
-    }
-
-    private static void QuickSort(int[] array, int lowIndex, int highIndex)
-    {
         if (lowIndex >= highIndex) return;
 
-        var pivot = array[highIndex];
+        var pivot = array[highIndex.Value];
         var leftPointer = lowIndex;
         var rightPointer = highIndex;
 
@@ -143,15 +115,15 @@ internal sealed class ArrayAlgorithms
                 leftPointer++;
             }
 
-            while (array[rightPointer] >= pivot && leftPointer < rightPointer)
+            while (array[rightPointer.Value] >= pivot && leftPointer < rightPointer)
             {
                 rightPointer--;
             }
 
-            (array[rightPointer], array[leftPointer]) = (array[leftPointer], array[rightPointer]);
+            (array[rightPointer.Value], array[leftPointer]) = (array[leftPointer], array[rightPointer.Value]);
         }
 
-        (array[highIndex], array[leftPointer]) = (array[leftPointer], array[highIndex]);
+        (array[highIndex.Value], array[leftPointer]) = (array[leftPointer], array[highIndex.Value]);
 
         QuickSort(array, lowIndex, leftPointer - 1);
         QuickSort(array, leftPointer + 1, highIndex);
