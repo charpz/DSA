@@ -34,13 +34,13 @@ static int FindTheNthFibonacciNumber(int n)
 
 static List<int> CalculateFibonacciNumbersWithRecursion(int num1, int num2, List<int> fibonacciList)
 {
-    var fibonnacciNum = num1 + num2;
+    var fibonacciNum = num1 + num2;
 
-    if (fibonnacciNum <= 100)
+    if (fibonacciNum <= 100)
     {
-        fibonacciList.Add(fibonnacciNum);
+        fibonacciList.Add(fibonacciNum);
 
-        CalculateFibonacciNumbersWithRecursion(num2, fibonnacciNum, fibonacciList);
+        CalculateFibonacciNumbersWithRecursion(num2, fibonacciNum, fibonacciList);
     }
 
     return fibonacciList;
