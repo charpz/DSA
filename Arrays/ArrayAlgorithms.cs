@@ -167,4 +167,45 @@ internal sealed class ArrayAlgorithms
     {
         // TODO: To be completed
     }
+
+    internal static int[] MergeSort(int[] array)
+    {
+        if (array.Length <= 1)
+        {
+            return array;
+        }
+
+        int mid = array.Length / 2;
+
+        var left = array[..mid];
+        var right = array[mid..];
+
+        left = MergeSort(left);
+        right = MergeSort(right);
+
+        return MergeWithTwoPointerTechnique(left, right);
+    }
+
+    internal static int[] MergeWithTwoPointerTechnique(int[] array1, int[] array2)
+    {
+        int[] result = new int[array1.Length + array2.Length];
+        int i = 0, j = 0, k = 0;
+
+        for (; i < array1.Length && j < array2.Length; k++)
+        {
+            result[k] = (array1[i] <= array2[j]) ? array1[i++] : array2[j++];
+        }
+
+        for (; i < array1.Length; k++, i++)
+        {
+            result[k] = array1[i];
+        }
+
+        for (; j < array2.Length; k++, j++)
+        {
+            result[k] = array2[j];
+        }
+
+        return result;
+    }
 }
