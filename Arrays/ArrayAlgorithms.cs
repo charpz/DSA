@@ -1,8 +1,8 @@
 ﻿namespace Arrays;
 
-internal sealed class ArrayAlgorithms
+public sealed class ArrayAlgorithms
 {
-    internal static int FindLowestValueInArray(int[] array)
+    public static int FindLowestValueInArray(int[] array)
     {
         var minValue = array[0];
 
@@ -17,7 +17,7 @@ internal sealed class ArrayAlgorithms
         return minValue;
     }
 
-    internal static int FindHighestValueInArray(int[] array)
+    public static int FindHighestValueInArray(int[] array)
     {
         var maxValue = array[0];
 
@@ -32,7 +32,7 @@ internal sealed class ArrayAlgorithms
         return maxValue;
     }
 
-    internal static void BubbleSort(int[] array)
+    public static void BubbleSort(int[] array)
     {
         var swapped = false;
 
@@ -56,7 +56,7 @@ internal sealed class ArrayAlgorithms
         }
     }
 
-    internal static void SelectionSort(int[] array)
+    public static void SelectionSort(int[] array)
     {
         for (int i = 0; i < array.Length; i++)
         {
@@ -84,7 +84,7 @@ internal sealed class ArrayAlgorithms
         }
     }
 
-    internal static void InsertionSort(int[] array)
+    public static void InsertionSort(int[] array)
     {
         for (int i = 1; i < array.Length; i++)
         {
@@ -105,7 +105,7 @@ internal sealed class ArrayAlgorithms
         }
     }
 
-    internal static void QuickSort(int[] array, int lowIndex = 0, int? highIndex = null)
+    public static void QuickSort(int[] array, int lowIndex = 0, int? highIndex = null)
     {
         if (array.Length <= 1) return;
 
@@ -138,7 +138,7 @@ internal sealed class ArrayAlgorithms
         QuickSort(array, leftPointer + 1, highIndex);
     }
 
-    internal static void CountingSort(int[] array)
+    public static void CountingSort(int[] array)
     {
         var tempArray = new int[FindHighestValueInArray(array) + 1];
 
@@ -163,12 +163,12 @@ internal sealed class ArrayAlgorithms
     }
 
     [Obsolete("This method is not finished yet.", true)]
-    internal static void RadixSort(int[] array)
+    public static void RadixSort(int[] array)
     {
         // TODO: To be completed
     }
 
-    internal static void MergeSort(ref int[] array)
+    public static void MergeSort(ref int[] array)
     {
         if (array.Length <= 1)
         {
@@ -186,7 +186,7 @@ internal sealed class ArrayAlgorithms
         array = MergeWithTwoPointerTechnique(left, right);
     }
 
-    internal static int[] MergeWithTwoPointerTechnique(int[] array1, int[] array2)
+    public static int[] MergeWithTwoPointerTechnique(int[] array1, int[] array2)
     {
         int[] result = new int[array1.Length + array2.Length];
         int i = 0, j = 0, k = 0;
@@ -207,5 +207,15 @@ internal sealed class ArrayAlgorithms
         }
 
         return result;
+    }
+
+    public static int? LinearSearch(int[] sampleArray, int searchValue)
+    {
+        for (int i = 0; i < sampleArray.Length; i++)
+        {
+            if (sampleArray[i] == searchValue) return i;
+        }
+
+        return null;
     }
 }
