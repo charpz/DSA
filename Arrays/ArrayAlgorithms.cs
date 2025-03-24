@@ -168,11 +168,11 @@ internal sealed class ArrayAlgorithms
         // TODO: To be completed
     }
 
-    internal static int[] MergeSort(int[] array)
+    internal static void MergeSort(ref int[] array)
     {
         if (array.Length <= 1)
         {
-            return array;
+            return;
         }
 
         int mid = array.Length / 2;
@@ -180,10 +180,10 @@ internal sealed class ArrayAlgorithms
         var left = array[..mid];
         var right = array[mid..];
 
-        left = MergeSort(left);
-        right = MergeSort(right);
+        MergeSort(ref left);
+        MergeSort(ref right);
 
-        return MergeWithTwoPointerTechnique(left, right);
+        array = MergeWithTwoPointerTechnique(left, right);
     }
 
     internal static int[] MergeWithTwoPointerTechnique(int[] array1, int[] array2)
