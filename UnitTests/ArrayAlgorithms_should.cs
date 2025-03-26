@@ -3,7 +3,7 @@ using Xunit;
 
 namespace UnitTests;
 
-public class ArrayAlgorithms_should
+public sealed class ArrayAlgorithms_should
 {
     private const int Min = 1;
     private const int Max = 1000;
