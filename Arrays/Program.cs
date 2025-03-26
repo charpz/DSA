@@ -1,15 +1,11 @@
 ﻿using Arrays;
 
-//int[] sampleArray = [23, 245, 546, 123, 4, 342, 2];
+int[] sampleArray = [23, 245, 546, 123, 4, 342, 2];
 //int[] sampleArray = [11, 9, 12, 7, 3];
 
-const int Min = 1;
-const int Max = 1000;
-int[] SampleArray = [12, 43, 3, 123, 345, 234, 1, 678, 34, 1000, 4, 3, 67, 8, 69];
+var result = ArrayAlgorithms.LinearSearch(sampleArray, 2);
 
-ArrayAlgorithms.SelectionSort(SampleArray);
-
-Console.WriteLine("Index: " + SampleArray);
+Console.WriteLine("Index: " + result);
 
 static int[] RandomIntegerArray(int size, int min, int max)
 {
