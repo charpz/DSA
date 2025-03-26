@@ -84,4 +84,29 @@ public sealed class ArrayAlgorithms_should
         Assert.NotNull(result);
         Assert.Equal(9, result);
     }
+
+    [Fact]
+    public void LinearSearch_returns_null_if_not_found()
+    {
+        var result = ArrayAlgorithms.LinearSearch(SampleArray, 7);
+
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void Search_array_using_BinarySearch()
+    {
+        var result = ArrayAlgorithms.LinearSearch(SampleArray, Max);
+
+        Assert.NotNull(result);
+        Assert.Equal(9, result);
+    }
+
+    [Fact]
+    public void BinarySearch_returns_null_if_not_found()
+    {
+        var result = ArrayAlgorithms.BinarySearch(SampleArray, 7);
+
+        Assert.Null(result);
+    }
 }

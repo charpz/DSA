@@ -1,6 +1,6 @@
 ﻿namespace Arrays;
 
-public sealed class ArrayAlgorithms
+public static class ArrayAlgorithms
 {
     public static int FindLowestValueInArray(int[] array)
     {
@@ -217,5 +217,34 @@ public sealed class ArrayAlgorithms
         }
 
         return null;
+    }
+
+    public static int? BinarySearch(int[] arr, int targetVal, int? left = null, int? right = null)
+    {
+        if (left is null || right is null)
+        {
+            left = 0;
+            right = arr.Length - 1;
+        }
+
+        if (left > right)
+        {
+            return null;
+        }
+
+        int mid = (left.Value + right.Value) / 2;
+
+        if (arr[mid] == targetVal)
+        {
+            return mid;
+        }
+        else if (arr[mid] < targetVal)
+        {
+            return BinarySearch(arr, targetVal, mid + 1, right);
+        }
+        else
+        {
+            return BinarySearch(arr, targetVal, left, mid - 1);
+        }
     }
 }

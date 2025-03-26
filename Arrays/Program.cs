@@ -1,22 +1,2 @@
-﻿using Arrays;
-
-int[] sampleArray = [23, 245, 546, 123, 4, 342, 2];
-//int[] sampleArray = [11, 9, 12, 7, 3];
-
-var result = ArrayAlgorithms.LinearSearch(sampleArray, 2);
-
-Console.WriteLine("Index: " + result);
-
-static int[] RandomIntegerArray(int size, int min, int max)
-{
-    var randNum = new Random();
-
-    var array = new int[size];
-
-    for (int i = 0; i < size; i++)
-    {
-        array[i] = randNum.Next(min, max);
-    }
-
-    return array;
-}
+﻿//int[] sampleArray = [23, 245, 546, 123, 4, 342, 2];
+int[] sampleArray = [2, 4, 23, 23, 87, 123, 245, 342, 546, 546, 676];
