@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Arrays\Arrays.csproj" />
     <ProjectReference Include="..\Fibonacci\Fibonacci.csproj" />
+    <ProjectReference Include="..\LinkedLists\LinkedLists.csproj" />
   </ItemGroup>
 
 </Project>
